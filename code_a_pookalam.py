@@ -142,18 +142,12 @@ yellow2 = rectangle(
     stroke="none"
 )
 
-# -------------------------
-# ROTATE THE WHOLE PATTERN
-# -------------------------
 
 yellow45 = yellow1 | rotate(90)  | repeat(16, rotate(22.5))
 orange45 = orange1 | rotate(90)  | repeat(16, rotate(22.5))
 white45 = white1 | rotate(90)  | repeat(16, rotate(22.5))
 yellow45_2 = yellow2 | rotate(90) | repeat(16, rotate(22.5))
 
-# -------------------------
-# SHOW
-# -------------------------
 smallpatch=yellow45+orange45+white45+yellow45_2
 show(
     background,
@@ -203,10 +197,6 @@ yellowHexagon = polygon(
 )
 
 
-# -------------------------
-# SHOW
-# -------------------------
-
 show(
     background,
     greenCircle,
@@ -227,11 +217,6 @@ show(
     yellowHexagon
 )
 
-# -------------------------
-# TRIANGLES AROUND HEXAGON
-# -------------------------
-
-# YELLOW TRIANGLE
 y1 = point(x=-55, y=45)
 y2 = point(x=-38, y=55)
 y3 = point(x=0,   y=87)
@@ -242,8 +227,6 @@ yellowTri = polygon(
     stroke="none"
 )
 
-
-# ORANGE TRIANGLE
 o1 = point(x=-38, y=55)
 o2 = point(x=-20, y=65)
 o3 = point(x=0,   y=87)
@@ -254,8 +237,6 @@ orangeTri = polygon(
     stroke="none"
 )
 
-
-# RED TRIANGLE
 r1 = point(x=-20, y=65)
 r2 = point(x=-8, y=70)
 r3 = point(x=0,  y=87)
@@ -266,8 +247,6 @@ redTri = polygon(
     stroke="none"
 )
 
-
-# BROWN TRIANGLE
 b1 = point(x=-8, y=70)
 b2 = point(x=0,  y=70)
 b3 = point(x=0,  y=87)
@@ -279,19 +258,10 @@ brownTri = polygon(
 )
 
 
-# -------------------------
-# REPEAT ON ALL 6 SIDES
-# -------------------------
-
 yellowTris = yellowTri | repeat(12, rotate(30))
 orangeTris = orangeTri | repeat(12, rotate(30))
 redTris = redTri | repeat(12, rotate(30))
 brownTris = brownTri | repeat(12, rotate(30))
-
-
-# -------------------------
-# SHOW
-# -------------------------
 innertris=yellowTris+orangeTris+redTris+brownTris
 show(background,
     greenCircle,
@@ -319,20 +289,11 @@ r3=rectangle(w=70,h=50,fill=GOLD,stroke="MAROON") | repeat(72,rotate(20) |scale(
 r=r1+r2+r3
 show(r)
 
-# -------------------------
-# OUTER / MIDDLE DESIGN
-# RADIUS = 75
-# -------------------------
-
 outter1 = (
     circle(r=75, fill=DARK_RED, stroke="none")
     + circle(r=68, fill=GREEN, stroke="none")
 )
 
-
-# -------------------------
-# MAROON LINES
-# -------------------------
 
 lines1 = (
     rectangle(
@@ -353,10 +314,6 @@ lines1 = (
 ) | repeat(8, rotate(45))
 
 
-# -------------------------
-# WHITE + MAROON LINES
-# -------------------------
-
 lines2 = (
     rectangle(
         y=52,
@@ -375,11 +332,6 @@ lines2 = (
     )
 ) | repeat(8, rotate(45))
 
-
-# -------------------------
-# WHITE OCTAGON
-# -------------------------
-
 octagon1 = polygon(
     [
         point(0,-75),
@@ -394,11 +346,6 @@ octagon1 = polygon(
     fill=YELLOW,
     stroke="none"
 )
-
-
-# -------------------------
-# SMALL PETAL
-# -------------------------
 
 def small_petal():
 
@@ -436,22 +383,11 @@ def small_petal():
 
     return outer_p + mid_p + inner_p + core_p
 
-
-# -------------------------
-# 8 PETALS
-# -------------------------
-
 small = (
     small_petal()
     | rotate(25)
     | repeat(8, rotate(45))
 )
-
-
-# -------------------------
-# CENTER DOT
-# -------------------------
-
 center_dot = (
     circle(
         r=20,
@@ -464,13 +400,7 @@ center_dot = (
         fill=DARK_RED,
         stroke="none"
     )
-)
-
-
-# -------------------------
-# COMBINE
-# -------------------------
-
+)-
 middle = (
     outter1
     + octagon1
@@ -479,12 +409,6 @@ middle = (
     + lines2
     + center_dot
 )
-
-
-# -------------------------
-# SHOW
-# -------------------------
-
 show(background,
     greenCircle,
     creamCircle,
